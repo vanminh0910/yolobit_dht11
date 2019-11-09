@@ -11,7 +11,7 @@ Blockly.Blocks['dht_create'] = {
           {
             "type": "field_variable",
             "name": "SENSOR",
-            "variable": "dht sensor"
+            "variable": "dht-sensor"
           },
           {
             "type": "field_dropdown",
@@ -129,7 +129,7 @@ Blockly.Blocks['dht_measure'] = {
           {
             "type": "field_variable",
             "name": "SENSOR",
-            "variable": "dht sensor"
+            "variable": "dht-sensor"
           }
         ],
         "previousStatement": null,
@@ -152,7 +152,7 @@ Blockly.Blocks['dht_read'] = {
           {
             "type": "field_variable",
             "name": "SENSOR",
-            "variable": "dht sensor"
+            "variable": "dht-sensor"
           },
           {
             "type": "field_dropdown",
