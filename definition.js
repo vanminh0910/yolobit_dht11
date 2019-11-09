@@ -10,8 +10,8 @@ Blockly.Blocks['dht_create'] = {
         "args0": [
           {
             "type": "field_variable",
-            "name": "SENSOR",
-            "variable": "dht-sensor"
+            "name": "dht_sensor",
+            "variable": Blockly.Msg.DHT_CREATE_MESSAGE1
           },
           {
             "type": "field_dropdown",
