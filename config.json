@@ -1,6 +1,6 @@
 {
-    "name": "DHT Sensor",
-    "description": "Extension for DHT temp and humidity sensor",
+    "name": "Cảm biến DHT",
+    "description": "Mục mở rộng cho cảm biến nhiệt độ và độ ẩm DHT",
     "libs": [
     ],
     "blocks": [

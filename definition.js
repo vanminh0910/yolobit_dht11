@@ -2,7 +2,6 @@ Blockly.Blocks['dht_create'] = {
   init: function() {
     this.jsonInit(
       {
-        "type": "dht_create",
         "message0": Blockly.Msg.DHT_CREATE_MESSAGE0,
         "args0": [
           {
@@ -134,7 +133,6 @@ Blockly.Blocks['dht_measure'] = {
   init: function() {
     this.jsonInit(
       {
-        "type": "dht_measure",
         "message0": Blockly.Msg.DHT_MEASURE_MESSAGE0,
         "args0": [
           {
@@ -166,7 +164,6 @@ Blockly.Blocks['dht_read'] = {
   init: function() {
     this.jsonInit(
       {
-        "type": "dht_read",
         "message0": Blockly.Msg.DHT_READ_MESSAGE0,
         "args0": [
           {
