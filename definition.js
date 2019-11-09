@@ -1,4 +1,8 @@
 Blockly.Blocks['dht_create'] = {
+  /**
+   * Block for waiting.
+   * @this Blockly.Block
+   */
   init: function() {
     this.jsonInit(
       {
@@ -116,19 +120,6 @@ Blockly.Blocks['dht_create'] = {
   }
 };
 
-Blockly.Python['dht_create'] = function(block) {
-  var variable_sensor = Blockly.Python.variableDB_.getName(block.getFieldValue('SENSOR'), Blockly.Variables.NAME_TYPE);
-  var dropdown_type = block.getFieldValue('TYPE');
-  var dropdown_pin = block.getFieldValue('PIN');
-  // TODO: Assemble Python into code variable.
-  Blockly.Python.definitions_['import_yolobit'] = 'from yolobit import *';
-  Blockly.Python.definitions_['import_dht'] = 'import dht';
-  var code = variable_sensor + ' = dht.' + dropdown_type + '(Pin(' + dropdown_pin + '.pin))\n';
-  return code;
-};
-
-// DHT measure
-
 Blockly.Blocks['dht_measure'] = {
   init: function() {
     this.jsonInit(
@@ -151,14 +142,6 @@ Blockly.Blocks['dht_measure'] = {
   }
 };
 
-Blockly.Python['dht_measure'] = function(block) {
-  var variable_sensor = Blockly.Python.variableDB_.getName(block.getFieldValue('SENSOR'), Blockly.Variables.NAME_TYPE);
-  // TODO: Assemble Python into code variable.
-  var code = variable_sensor + '.measure()\n';
-  return code;
-};
-
-//DHT read
 
 Blockly.Blocks['dht_read'] = {
   init: function() {
@@ -194,6 +177,28 @@ Blockly.Blocks['dht_read'] = {
     );
   }
 };
+
+Blockly.Python['dht_create'] = function(block) {
+  var variable_sensor = Blockly.Python.variableDB_.getName(block.getFieldValue('SENSOR'), Blockly.Variables.NAME_TYPE);
+  var dropdown_type = block.getFieldValue('TYPE');
+  var dropdown_pin = block.getFieldValue('PIN');
+  // TODO: Assemble Python into code variable.
+  Blockly.Python.definitions_['import_yolobit'] = 'from yolobit import *';
+  Blockly.Python.definitions_['import_dht'] = 'import dht';
+  var code = variable_sensor + ' = dht.' + dropdown_type + '(Pin(' + dropdown_pin + '.pin))\n';
+  return code;
+};
+
+// DHT measure
+
+Blockly.Python['dht_measure'] = function(block) {
+  var variable_sensor = Blockly.Python.variableDB_.getName(block.getFieldValue('SENSOR'), Blockly.Variables.NAME_TYPE);
+  // TODO: Assemble Python into code variable.
+  var code = variable_sensor + '.measure()\n';
+  return code;
+};
+
+//DHT read
 
 Blockly.Python['dht_read'] = function(block) {
   var variable_sensor = Blockly.Python.variableDB_.getName(block.getFieldValue('SENSOR'), Blockly.Variables.NAME_TYPE);
