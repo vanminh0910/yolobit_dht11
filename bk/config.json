@@ -4,8 +4,7 @@
     "libs": [
     ],
     "blocks": [
-        "definition.js",
-        "generator.js"
+        "definition2.js"
     ],
     "toolbox": "toolbox.xml",
     "languages": {
