@@ -1,4 +1,4 @@
-Blockly.Blocks['dht_create'] = {
+Blockly.Blocks['dht11_create'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("create")
@@ -10,14 +10,14 @@ Blockly.Blocks['dht_create'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
- this.setTooltip("Update sensor value");
- this.setHelpUrl("");
+    this.setTooltip("Update sensor value");
+    this.setHelpUrl("");
   }
 };
 
-Blockly.Python['dht_create'] = function(block) {
-  Blockly.Python.definitions_['import_yolobit'] = 'from yolobit import *';
-  Blockly.Python.definitions_['import_dht'] = 'import dht';
+Blockly.Python['dht11_create'] = function(block) {
+  //Blockly.Python.definitions_['import_yolobit'] = 'from yolobit import *';
+  //Blockly.Python.definitions_['import_dht'] = 'import dht';
   // TODO: Assemble Python into code variable.
   var code = '...\n';
   return code;

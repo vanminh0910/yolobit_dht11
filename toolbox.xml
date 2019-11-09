@@ -1,6 +1,6 @@
 <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
   <category name="DHT" colour="#ff8f3f" icon="thermometer">
-    <block type="dht_create"/>
+    <block type="dht11_create"/>
     <!--<block type="dht_measure"/>
     <block type="dht_read"/>-->
   </category>
