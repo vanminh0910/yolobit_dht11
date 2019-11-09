@@ -11,7 +11,7 @@ Blockly.Blocks['dht_create'] = {
           {
             "type": "field_variable",
             "name": "SENSOR",
-            "variable": "dht-sensor"
+            "variable": "dht sensor"
           },
           {
             "type": "field_dropdown",
@@ -122,12 +122,12 @@ Blockly.Blocks['dht_create'] = {
 
 
 Blockly.Python['dht_create'] = function(block) {
+  Blockly.Python.definitions_['import_yolobit'] = 'from yolobit import *';
+  Blockly.Python.definitions_['import_dht'] = 'import dht';
   var variable_sensor = Blockly.Python.variableDB_.getName(block.getFieldValue('SENSOR'), Blockly.Variables.NAME_TYPE);
   var dropdown_type = block.getFieldValue('TYPE');
   var dropdown_pin = block.getFieldValue('PIN');
   // TODO: Assemble Python into code variable.
-  Blockly.Python.definitions_['import_yolobit'] = 'from yolobit import *';
-  Blockly.Python.definitions_['import_dht'] = 'import dht';
   var code = variable_sensor + ' = dht.' + dropdown_type + '(Pin(' + dropdown_pin + '.pin))\n';
   return code;
 };
