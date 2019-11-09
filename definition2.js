@@ -1,4 +1,4 @@
-Blockly.Blocks['dht11_create'] = {
+Blockly.Blocks['dht22_create'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("create")
@@ -15,7 +15,7 @@ Blockly.Blocks['dht11_create'] = {
   }
 };
 
-Blockly.Python['dht11_create'] = function(block) {
+Blockly.Python['dht22_create'] = function(block) {
   //Blockly.Python.definitions_['import_yolobit'] = 'from yolobit import *';
   //Blockly.Python.definitions_['import_dht'] = 'import dht';
   // TODO: Assemble Python into code variable.
