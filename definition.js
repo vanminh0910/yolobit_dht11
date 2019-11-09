@@ -1,29 +1,9 @@
-/*
-Blockly.Blocks['yolobit_sample_extension'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField(Blockly.Msg.YOLOBIT_SAMPLE_EXTENSION);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(230);
- this.setTooltip("");
- this.setHelpUrl("");
-  }
-};
-
-Blockly.Python['yolobit_sample_extension'] = function(block) {
-  // TODO: Assemble Python into code variable.
-  var code = 'print("Hello Yolo:Bit")';
-  return code;
-};
-*/
-
-Blockly.Blocks['dht11_create'] = {
+Blockly.Blocks['dht_create'] = {
   init: function() {
     this.jsonInit(
       {
-        "type": "dht11_create",
-        "message0": Blockly.Msg.DHT_MESSAGE0,
+        "type": "dht_create",
+        "message0": Blockly.Msg.DHT_CREATE_MESSAGE0,
         "args0": [
           {
             "type": "field_variable",
@@ -129,19 +109,104 @@ Blockly.Blocks['dht11_create'] = {
         ],
         "previousStatement": null,
         "nextStatement": null,
-        "colour": 230,
-        "tooltip": Blockly.Msg.DHT_TOOLTIP,
-        "helpUrl": Blockly.Msg.DHT_HELPURL
+        "colour": '#ff8f3f',
+        "tooltip": Blockly.Msg.DHT_CREATE_TOOLTIP,
+        "helpUrl": Blockly.Msg.DHT_CREAT_HELPURL
       }
     );
   }
 };
 
-Blockly.Python['dht11_create'] = function(block) {
+Blockly.Python['dht_create'] = function(block) {
   var variable_sensor = Blockly.Python.variableDB_.getName(block.getFieldValue('SENSOR'), Blockly.Variables.NAME_TYPE);
   var dropdown_type = block.getFieldValue('TYPE');
   var dropdown_pin = block.getFieldValue('PIN');
   // TODO: Assemble Python into code variable.
+  Blockly.Python.definitions_['import_yolobit'] = 'from yolobit import *';
+  Blockly.Python.definitions_['import_dht'] = 'import dht';
   var code = variable_sensor + ' = dht.' + dropdown_type + '(Pin(' + dropdown_pin + '.pin))\n';
   return code;
+};
+
+// DHT measure
+
+Blockly.Blocks['dht_measure'] = {
+  init: function() {
+    this.jsonInit(
+      {
+        "type": "dht_measure",
+        "message0": Blockly.Msg.DHT_MEASURE_MESSAGE0,
+        "args0": [
+          {
+            "type": "field_variable",
+            "name": "SENSOR",
+            "variable": "dht sensor"
+          }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": "#ff8f3f",
+        "tooltip": Blockly.Msg.DHT_MEASURE_TOOLTIP,
+        "helpUrl": Blockly.Msg.DHT_MEASURE_HELPURL
+      }
+    );
+  }
+};
+
+Blockly.Python['dht_measure'] = function(block) {
+  var variable_sensor = Blockly.Python.variableDB_.getName(block.getFieldValue('SENSOR'), Blockly.Variables.NAME_TYPE);
+  // TODO: Assemble Python into code variable.
+  var code = variable_sensor + '.measure()\n';
+  return code;
+};
+
+//DHT read
+
+Blockly.Blocks['dht_read'] = {
+  init: function() {
+    this.jsonInit(
+      {
+        "type": "dht_read",
+        "message0": Blockly.Msg.DHT_READ_MESSAGE0,
+        "args0": [
+          {
+            "type": "field_variable",
+            "name": "SENSOR",
+            "variable": "dht sensor"
+          },
+          {
+            "type": "field_dropdown",
+            "name": "DATA",
+            "options": [
+              [
+                Blockly.Msg.DHT_READ_TEMP,
+                "TEMP"
+              ],
+              [
+                Blockly.Msg.DHT_READ_HUMID,
+                "HUMID"
+              ]
+            ]
+          }
+        ],
+        "output": null,
+        "colour": "#ff8f3f",
+        "tooltip": Blockly.Msg.DHT_READ_TOOLTIP,
+        "helpUrl": Blockly.Msg.DHT_READ_HELPURL
+      }
+    );
+  }
+};
+
+Blockly.Python['dht_read'] = function(block) {
+  var variable_sensor = Blockly.Python.variableDB_.getName(block.getFieldValue('SENSOR'), Blockly.Variables.NAME_TYPE);
+  var dropdown_data = block.getFieldValue('DATA');
+  // TODO: Assemble Python into code variable.
+  var code = '';
+  if (dropdown_data == 'TEMP')
+    code = variable_sensor + '.temperature()';
+  else
+    code = variable_sensor + '.humidity()';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.Python.ORDER_NONE];
 };

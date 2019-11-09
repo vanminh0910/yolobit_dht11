@@ -1,6 +1,6 @@
 {
-    "name": "DHT11 Temperature and Humidity Sensor",
-    "description": "Extension for Yolo:DHT11 temperature and humidity sensor",
+    "name": "DHT Sensor",
+    "description": "Extension for DHT temp and humidity sensor",
     "libs": [
     ],
     "blocks": [
