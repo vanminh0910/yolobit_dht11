@@ -1,4 +1,4 @@
-Blockly.Blocks['dht11_create'] = {
+Blockly.Blocks['dht_create'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("create")
